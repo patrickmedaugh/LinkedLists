@@ -97,5 +97,16 @@ class Linklisttest < Minitest::Test
     assert_equal node1, link.access_tail
   end
 
+  def test_can_access_node_by_position
+    node1 = Node.new("NODE1")
+    node2 = Node.new("NODE2")
+    node3 = Node.new("NODE3")
+    link = Iterative_Linked_list.new
+    link.append(node1)
+    link.append(node2)
+    link.append(node3)
+    assert_equal node2, link.access_by_position(2)
+  end
+
 
 end

@@ -16,10 +16,6 @@ class Iterative_Linked_list
       current_node.ref = node
   end
 
-  def push
-
-  end
-
   def access_tail
     current_node = head
     while current_node.ref != nil
@@ -39,7 +35,14 @@ class Iterative_Linked_list
     return next_node
   end
 
-  def access_by_position
+  def access_by_position(position)
+    current_node = head
+    @node_counter = 0
+    while node_counter != position
+      current_node = current_node.ref
+      @node_counter += 1
+    end
+    return current_node
   end
 
   def count
