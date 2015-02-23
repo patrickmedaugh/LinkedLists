@@ -26,7 +26,13 @@ class Recursive_Linked_list
   def access_by_position(position)
   end
 
-  def count
+  def count(num = 0 , current = head)
+    if current.ref == nil
+    elsif current.ref.ref
+      count(num + 2, current.ref.ref)
+    else
+      num +=1
+    end
   end
 
 end

@@ -34,7 +34,6 @@ class Linklisttest < Minitest::Test
   end
 
   def test_append_can_add_multiple_nodes_to_list
-  #  skip
     node1 = Node.new("NODE1!")
     node2 = Node.new("NODE2?")
     node3 = Node.new("NODE3!!!")
@@ -43,6 +42,18 @@ class Linklisttest < Minitest::Test
     link.append(node2)
     link.append(node3)
     assert_equal node2, node1.ref
+  end
+
+  def test_can_count_more_than_one_node
+    node1 = Node.new("NODE1!")
+    node2 = Node.new("NODE2?")
+    node3 = Node.new("NODE3")
+    link = Recursive_Linked_list.new
+    link.append(node1)
+    link.append(node2)
+    link.append(node3)
+    link.count
+    assert_equal 3, link.count
   end
 
 
