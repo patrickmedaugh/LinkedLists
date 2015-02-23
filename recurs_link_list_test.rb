@@ -56,5 +56,16 @@ class Linklisttest < Minitest::Test
     assert_equal 3, link.count
   end
 
+  def test_it_can_access_the_tail
+    node1 = Node.new("NODE1!")
+    node2 = Node.new("NODE2?")
+    node3 = Node.new("NODE3")
+    link = Recursive_Linked_list.new
+    link.append(node1)
+    link.append(node2)
+    link.append(node3)
+    assert_equal node3, link.access_tail
+  end
+
 
 end

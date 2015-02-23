@@ -17,7 +17,13 @@ class Recursive_Linked_list
     end
   end
 
-  def access_tail
+  def access_tail(current = head)
+    if current.ref== nil
+    elsif current.ref.ref
+      access_tail(current.ref.ref)
+    elsif current.ref.ref == nil
+      return current.ref
+    end
   end
 
   def pop
@@ -28,10 +34,10 @@ class Recursive_Linked_list
 
   def count(num = 0 , current = head)
     if current.ref == nil
+    elsif current.ref.ref == nil
+      num +=1
     elsif current.ref.ref
       count(num + 2, current.ref.ref)
-    else
-      num +=1
     end
   end
 
