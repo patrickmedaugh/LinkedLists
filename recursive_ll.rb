@@ -21,7 +21,7 @@ class Recursive_Linked_list
   def access_tail(current = head)
     if current.ref == nil
       return current
-    else
+    elsif current.ref
       access_tail(current.ref)
     end
   end
@@ -29,7 +29,9 @@ class Recursive_Linked_list
   def pop(current = head)
     if current.ref == nil
     elsif current.ref.ref == nil
+      pop_node = current.ref
       current.ref = nil
+      return pop_node 
     else
       pop(current.ref)
     end

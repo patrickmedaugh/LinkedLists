@@ -94,10 +94,18 @@ class Linklisttest < Minitest::Test
     link.append(node3)
     link.pop
     assert_equal node2, link.access_tail
-
   end
 
   def test_pop_can_return_deleted_node
+    node1 = Node.new("NODE1!")
+    node2 = Node.new("NODE2?")
+    node3 = Node.new("NODE3")
+    link = Recursive_Linked_list.new
+    link.append(node1)
+    link.append(node2)
+    link.append(node3)
+    assert_equal node3, link.pop
+
   end
 
 end
