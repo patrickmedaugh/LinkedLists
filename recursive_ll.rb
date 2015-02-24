@@ -5,7 +5,6 @@ class Recursive_Linked_list
 
   def initialize
     @head = Node.new(nil)
-    @node_counter = 0
   end
 
   def append(node, current = head)
@@ -31,27 +30,26 @@ class Recursive_Linked_list
     elsif current.ref.ref == nil
       pop_node = current.ref
       current.ref = nil
-      return pop_node 
+      return pop_node
     else
       pop(current.ref)
     end
   end
 
-  def access_by_position(position, current = head)
-    if @node_counter != position
-      @node_counter += 1
-      access_by_position(position, current.ref)
+  def access_by_position(position, current = head, node_counter = 0)
+    if node_counter != position
+      node_counter += 1
+      access_by_position(position, current.ref, node_counter)
     else
-      return current
+      current
     end
   end
 
-  def count(num = 0 , current = head)
+  def count(current = head)
     if current.ref == nil
-    elsif current.ref.ref == nil
-      num +=1
-    elsif current.ref.ref
-      count(num + 2, current.ref.ref)
+      0
+    else
+      1 + count(current.ref)
     end
   end
 

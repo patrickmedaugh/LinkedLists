@@ -105,7 +105,6 @@ class Linklisttest < Minitest::Test
     link.append(node2)
     link.append(node3)
     assert_equal node3, link.pop
-
   end
 
 end
